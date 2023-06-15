@@ -1,0 +1,1 @@
+Esse é um projetinho apenas para praticar os comandos do git, html, css e  javascript para um estágio.
