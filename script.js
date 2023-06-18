@@ -39,12 +39,15 @@ class Calculator{
                 break;
             case "-":
                 operationValue = previous - current;
+                this.updateDisplay(operationValue, operation, current, previous);
                 break;
             case "*":
                 operationValue = previous * current;
+                this.updateDisplay(operationValue, operation, current, previous);
                 break;
             case "/":
                 operationValue = previous / current;
+                this.updateDisplay(operationValue, operation, current, previous);
                 break;
             case "=":
                 this.processEqualOperation();
@@ -58,7 +61,7 @@ class Calculator{
             case "CE":
                 this.processCEOperation();
             default:
-                break;
+                return;
         }
     }
 
@@ -67,7 +70,7 @@ class Calculator{
         if(operationValue === null){
             this.currentOperationText.innerText += this.currentOperation;
         } else {
-            if(previous == 0){
+            if(previous === 0){
                 operationValue = current;
             }
             this.previousOperationText.innerText = `${operationValue} ${operation}`;
@@ -84,7 +87,7 @@ class Calculator{
         this.previousOperationText.innerText = this.previousOperationText.innerText.slice(0, -1) + operation;
     }
 
-    //Operações especiais: DEL, CE e C
+    //Operações especiais: Delete, Clear Everything, Clear e Igual
     processDelOperation(){
         this.currentOperationText.innerText = this.currentOperationText.innerText.slice(0, -1);
     }
@@ -108,9 +111,9 @@ const calc = new Calculator(previousOperationText, currentOperationText);
 
 buttons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-
         const value = e.target.innerText;
-        if(+value >= 0 || value == ","){
+
+        if(+value >= 0 || value === ","){
             calc.addDigit(value);
         } else {
             calc.processOperation(value);

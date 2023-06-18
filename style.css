@@ -4,3 +4,107 @@
     box-sizing: border-box;
     font-family: Helvetica;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#calc {
+    width: 400px;
+    padding: .5em;
+    margin: 3em;
+    background-color: #c4c4c4;
+    color: #000;
+    display: flex;
+    flex-direction: column;;
+}
+
+#calc h3{
+    font-size: .8em;
+    font-weight: 300;
+    color: #666;
+}
+
+#operations {
+    text-align: right;
+
+}
+
+#previous-operation,#current-operation{
+    min-height: 1.6em;
+    padding: 0.2em;
+    overflow-wrap: break-word;
+}
+
+#previous-operation{
+    color: #777;
+}
+
+#current-operation{
+    font-size: 3em;
+    font-weight: 700;
+}
+
+#buttons-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3px;
+}
+
+#buttons-container button{
+    border: 1px solid transparent;
+    height: 4em;
+    font-size: 1.2em;
+    background-color: #dbdbdb;
+    cursor: pointer;
+}
+
+#buttons-container .num{
+    background-color: #f3f3f3;
+}
+
+#buttons-container button:hover{
+    background-color: #bababa;
+    border-color: #999;
+}
+
+#buttons-container #equalbtn{
+    grid-column: span 2;
+    background-color: #75a5cb;
+}
+
+#buttons-container #equalbtn:hover{
+    background-color: #3a91d8;
+}
+
+footer{
+    background: #f3f3f3;
+    color: #000;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 0;
+    width: 100%;
+    margin-bottom: 0px;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-logo{
+    margin: 0px 5px;
+    margin-bottom: 5px;
+    transition: 200ms all;
+}
+
+.footer-logo:hover{
+    opacity: 0.5;
+    transform: scale(1.2);
+}
+
+.footer-escuro{
+    display: none;
+}
